@@ -1,4 +1,5 @@
 import {Component} from 'react'
+import {Redirect} from 'react-router-dom'
 import TaskList from '../TaskList'
 import {v4 as uuidv4} from 'uuid'
 import Cookies from 'js-cookie'
@@ -42,9 +43,17 @@ class Home extends Component {
         }
       };
 
-
+      onClickLogout = () => {
+        Cookies.remove('jwt_token');
+        <Redirect to='/signin' />
+      };
+    
     render() {
         const {taskName, taskStatus} = this.state
+        const jwtToken = Cookies.get('jwt_token');
+        if (!jwtToken) {
+          return <Redirect to="/signin" />;
+        }
         return (
             <div className='home-container' >
                 <form className='home-form-container' onSubmit={this.onSubmitForm} >
@@ -58,6 +67,7 @@ class Home extends Component {
                         <option value="Completed">Completed</option>
                     </select>
                     <button className='add-task-button' type="submit" >ADD TASK</button>
+                    <button className='logout-button' onClick={this.onClcikLogout}>Logout</button>
                 </form>
                 <TaskList />
             </div>
