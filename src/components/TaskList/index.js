@@ -1,14 +1,15 @@
-import { Component } from 'react';
-import { withRouter } from 'react-router-dom/cjs/react-router-dom.min';
+import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
 import Cookies from 'js-cookie';
-import './index.css'
+import './index.css';
+
 const bgColor = {
   'Start': 'red',
   'Inprogress': 'yellow',
   'Completed': 'green',
   default: 'transparent'
-}
-// Define status states
+};
+
 const STATUS = {
   INITIAL: 'initial',
   LOADING: 'loading',
@@ -18,9 +19,8 @@ const STATUS = {
 
 class TaskList extends Component {
   state = {
-    taskList: [],
     status: STATUS.INITIAL,
-    errorMsg:""
+    errorMsg: ""
   };
 
   componentDidMount() {
@@ -28,7 +28,7 @@ class TaskList extends Component {
   }
 
   getTaskList = async () => {
-    this.setState({ status: STATUS.LOADING }); // Set status to loading
+    this.setState({ status: STATUS.LOADING });
 
     const jwtToken = Cookies.get('jwt_token');
     const url = 'https://claw-backend-a336.onrender.com/todos';
@@ -41,54 +41,52 @@ class TaskList extends Component {
 
     try {
       const response = await fetch(url, options);
-      const data = await response.json();
 
-      if (response.ok === true) {
-        this.setState({ taskList: data, status: STATUS.SUCCESS }); // Set status to success
+      if (response.ok) {
+        this.setState({ status: STATUS.SUCCESS });
+        this.props.getTaskList(); // Trigger parent component to refresh task list
       } else {
-        this.setState({ status: STATUS.FAILURE }); // Set status to failure
+        this.setState({ status: STATUS.FAILURE });
       }
     } catch (error) {
-      this.setState({ status: STATUS.FAILURE }); // Set status to failure
+      this.setState({ status: STATUS.FAILURE });
     }
   };
 
-  onClickEditTask = async (taskId) => {
-      const {history} = this.props
-      history.push(`/update-task/${taskId}`);
-    }
+  onClickEditTask = (taskId) => {
+    const { history } = this.props;
+    history.push(`/update-task/${taskId}`);
+  }
 
   onClickDeleteTask = async (taskId) => {
     const jwtToken = Cookies.get('jwt_token');
     const url = `https://claw-backend-a336.onrender.com/todos/${taskId}`;
     const options = {
-      method:"DELETE",
+      method: "DELETE",
       headers: {
         Authorization: `Bearer ${jwtToken}`,
       }
     };
 
     try {
-      const response =  await fetch(url, options);
-      if (response.ok === true) {
-        this.setState((prevState) => ({
-          taskList: prevState.taskList.filter(task => task.id !== taskId),errorMsg:""
-        }));
+      const response = await fetch(url, options);
+      if (response.ok) {
+        this.props.getTaskList(); // Refresh task list
       } else {
-          this.setState({errorMsg:" Unable Delete todo Task Try again"})
+        this.setState({ errorMsg: "Unable to delete task. Try again." });
       }
     } catch (error) {
-          this.setState({errorMsg:" Unable Delete todo Task Try again"})
+      this.setState({ errorMsg: "Unable to delete task. Try again." });
     }
   }
 
   getBackgroundColor = (status) => {
-    console.log(status)
-    return bgColor[status]
+    return bgColor[status] || bgColor.default;
   }
 
   renderContent() {
-    const { taskList, status } = this.state;
+    const { taskList } = this.props;
+    const { status } = this.state;
 
     switch (status) {
       case STATUS.LOADING:
@@ -102,13 +100,15 @@ class TaskList extends Component {
               <div>No tasks available.</div>
             ) : (
               taskList.map(task => (
-                <div className='task-container' key={task.id}
-                  style={{backgroundColor:this.getBackgroundColor(task.is_completed)}}
+                <div
+                  className='task-container'
+                  key={task.id}
+                  style={{ backgroundColor: this.getBackgroundColor(task.is_completed) }}
                 >
                   <h1 className='task-heading'>{task.task}</h1>
                   <div>
-                    <button className='edit-button button' onClick={() => this.onClickEditTask(task.id)} >Edit</button>
-                    <button className='delete-button button' onClick={() => this.onClickDeleteTask(task.id)} >Delete</button>
+                    <button className='edit-button button' onClick={() => this.onClickEditTask(task.id)}>Edit</button>
+                    <button className='delete-button button' onClick={() => this.onClickDeleteTask(task.id)}>Delete</button>
                   </div>
                 </div>
               ))
@@ -117,13 +117,11 @@ class TaskList extends Component {
         );
       case STATUS.INITIAL:
       default:
-        return null; // Optionally handle initial state or show a placeholder
+        return null;
     }
   }
 
   render() {
-    const {taskList} = this.state
-    console.log(taskList)
     return <div>{this.renderContent()}</div>;
   }
 }

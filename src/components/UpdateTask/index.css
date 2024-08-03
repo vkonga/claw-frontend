@@ -94,7 +94,7 @@
         margin-top: 20px;
     }
     }
-@media screen and (max-width:901px) {
+@media screen and (min-width:901px) {
         .update-container{
             display: flex;
             flex-direction: column;
