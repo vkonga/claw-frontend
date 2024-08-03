@@ -67,7 +67,7 @@ class Home extends Component {
                         <option value="Completed">Completed</option>
                     </select>
                     <button className='add-task-button' type="submit" >ADD TASK</button>
-                    <button className='logout-button' onClick={this.onClcikLogout}>Logout</button>
+                    <button className='logout-button' onClick={this.onClickLogout}>Logout</button>
                 </form>
                 <TaskList />
             </div>
