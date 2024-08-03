@@ -1,0 +1,187 @@
+@media screen and (max-width:600px){
+.sign-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+}
+.form-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    width: 50vw;
+    height: 50vh;
+    border-radius: 10px;
+}
+.sign-heading{
+    font-size: 30px;
+    font-weight: 700;
+    color: white;
+    font-style: italic;
+}
+.container{
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 20vw;
+    height: 5vh;
+}
+.label{
+    color: white;
+    font-size: 14px;
+    font-weight: 700;
+
+}
+.input{
+    color: black;
+    font-size: 15px;
+    border: 2px solid black;
+    outline: none;
+}
+.sign-button{
+    color: white;
+    background-color: blue;
+    width: 150px;
+    height: 50px;
+    font-weight: 700;
+    text-align: center;
+    border: 0;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    cursor: pointer;
+}
+.signin-here{
+    color: blue;
+    text-decoration: underline;
+}
+}
+@media screen and (min-width:601px) and (max-width:900px){
+    .sign-container{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100vw;
+        height: 100vh;
+    }
+    .form-container{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: black;
+        width: 50vw;
+        height: 50vh;
+        border-radius: 10px;
+    }
+    .sign-heading{
+        font-size: 30px;
+        font-weight: 700;
+        color: white;
+        font-style: italic;
+    }
+    .container{
+        display: flex;
+        flex-direction: column;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        width: 20vw;
+        height: 5vh;
+    }
+    .label{
+        color: white;
+        font-size: 14px;
+        font-weight: 700;
+    
+    }
+    .input{
+        color: black;
+        font-size: 15px;
+        border: 2px solid black;
+        outline: none;
+    }
+    .sign-button{
+        color: white;
+        background-color: blue;
+        width: 150px;
+        height: 50px;
+        font-weight: 700;
+        text-align: center;
+        border: 0;
+        border-radius: 10px;
+        margin-bottom: 20px;
+        cursor: pointer;
+    }
+    .signin-here{
+        color: blue;
+        text-decoration: underline;
+    }
+    }
+@media screen and (min-width:901px){
+        .sign-container{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 100vw;
+            height: 100vh;
+        }
+        .form-container{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: black;
+            width: 80vw;
+            height: 80vh;
+            border-radius: 10px;
+        }
+        .sign-heading{
+            font-size: 30px;
+            font-weight: 700;
+            color: white;
+            font-style: italic;
+        }
+        .container{
+            display: flex;
+            flex-direction: column;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            width: 20vw;
+            height: 5vh;
+        }
+        .label{
+            color: white;
+            font-size: 14px;
+            font-weight: 700;
+            width: 200px;
+        }
+        .input{
+            color: black;
+            font-size: 15px;
+            border: 2px solid black;
+            outline: none;
+        }
+        .sign-button{
+            color: white;
+            background-color: blue;
+            width: 150px;
+            height: 50px;
+            font-weight: 700;
+            text-align: center;
+            border: 0;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            cursor: pointer;
+        }
+        .signin-here{
+            color: blue;
+            text-decoration: underline;
+        }
+        }
+        

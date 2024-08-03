@@ -1,0 +1,145 @@
+@media screen and (max-width:600px) {
+.update-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+}
+.updatetask-container{
+    width: 50vw;
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+}
+.update-heading{
+    color: white;
+    font-size: 25px;
+    font-weight: 700;
+
+}
+.update-input{
+    width: 20vw;
+    height: 40px;
+    border: 0;
+    border-radius: 5px;
+    outline: none;
+    font-size: 15px;
+}
+.select{
+    width: 20vw;
+    height: 40px;
+    margin-top: 20px;
+}
+.save-button{
+    background-color: blue;
+    color: white;
+    text-align: center;
+    width: 100px;
+    height: 40px;
+    border: 0;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+}
+@media screen and (min-width:601px) and (max-width:900px) {
+    .update-container{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100vw;
+        height: 100vh;
+    }
+    .updatetask-container{
+        width: 50vw;
+        height: 50vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: black;
+    }
+    .update-heading{
+        color: white;
+        font-size: 25px;
+        font-weight: 700;
+    
+    }
+    .update-input{
+        width: 20vw;
+        height: 40px;
+        border: 0;
+        border-radius: 5px;
+        outline: none;
+        font-size: 15px;
+    }
+    .select{
+        width: 20vw;
+        height: 40px;
+        margin-top: 20px;
+    }
+    .save-button{
+        background-color: blue;
+        color: white;
+        text-align: center;
+        width: 100px;
+        height: 40px;
+        border: 0;
+        border-radius: 10px;
+        margin-top: 20px;
+    }
+    }
+@media screen and (max-width:901px) {
+        .update-container{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 100vw;
+            height: 100vh;
+        }
+        .updatetask-container{
+            width: 50vw;
+            height: 50vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: black;
+        }
+        .update-heading{
+            color: white;
+            font-size: 25px;
+            font-weight: 700;
+        
+        }
+        .update-input{
+            width: 20vw;
+            height: 40px;
+            border: 0;
+            border-radius: 5px;
+            outline: none;
+            font-size: 15px;
+        }
+        .select{
+            width: 20vw;
+            height: 40px;
+            margin-top: 20px;
+        }
+        .save-button{
+            background-color: blue;
+            color: white;
+            text-align: center;
+            width: 100px;
+            height: 40px;
+            border: 0;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+        }
+        
